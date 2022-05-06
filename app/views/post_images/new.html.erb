@@ -1,5 +1,17 @@
 <h1>新規投稿フォーム</h1>
 
+<%# エラーメッセージの表示 %>
+<% if @post_image.errors.any? %>
+ <p><%= @post_image.errors.count %>個のエラーが発生しました </p>
+
+ <ul>
+  <% @post_image.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+  <% end %>
+ </ul>
+<% end %>
+
+<%# 投稿画面の表示 %>
 <%= form_with model: @post_image do |f|%>
 
   <h4>画像</h4>
